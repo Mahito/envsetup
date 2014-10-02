@@ -1,0 +1,17 @@
+- name: Get rbenv & ruby-build by homebrew
+  homebrew: name={{ item }} state=present update_homebrew=yes
+  sudo: yes
+  with_items:
+    - rbenv
+    - ruby-build
+  when: ansible_os_family == "Darwin"
+
+- name: Get rbenv for github
+  git: repo=https://github.com/sstephenson/rbenv.git
+       dest=~/.rbenv
+  when: ansible_os_family != "Darwin"
+
+- name: Get ruby-build for github
+  git: repo=https://github.com/sstephenson/ruby-build.git
+       dest=~/.rbenv/plugins/ruby-build
+  when: ansible_os_family != "Darwin"

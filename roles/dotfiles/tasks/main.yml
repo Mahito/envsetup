@@ -1,0 +1,18 @@
+- name: Get dotfiles for github
+  git: repo=https://github.com/Mahito/dotfiles.git
+       dest=~/repos/dotfiles
+       recursive=no
+
+- name: Copy files
+  file: src=~/repos/dotfiles/_{{ item }}
+        dest=~/.{{ item }}
+        state=link
+  with_items:
+    - vim
+    - vimrc
+    - zshenv
+    - zshlogin
+    - zshrc
+
+- name: Install NeoBundle
+  shell: curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh

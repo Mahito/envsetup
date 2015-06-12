@@ -1,0 +1,7 @@
+- name:
+  git:
+    repo: https://github.com/zimbatm/direnv
+    dest: ~/direnv
+
+- name:
+  command: make install chdir="~/direnv"

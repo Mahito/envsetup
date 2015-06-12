@@ -1,0 +1,5 @@
+- name:
+  git:
+    repo: https://github.com/riywo/anyenv
+    dest: ~/.anyenv
+

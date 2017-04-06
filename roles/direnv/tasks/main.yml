@@ -4,4 +4,4 @@
     dest: ~/direnv
 
 - name:
-  command: make install chdir="~/direnv"
+  command: sudo make install chdir="~/direnv"
